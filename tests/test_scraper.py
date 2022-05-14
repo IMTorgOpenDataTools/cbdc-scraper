@@ -7,7 +7,7 @@ __author__ = "Jason Beach"
 __version__ = "0.1.0"
 __license__ = "MIT"
 
-import pytest
+
 from cbdc_scraper.utils import get_data, process_data, download_data
 
 
@@ -26,3 +26,9 @@ def test_process_data():
     assert len(recs) > 10
 
 
+def test_complete_process():
+        data_dict = get_data()
+        recs = process_data(data_dict)
+        check = download_data(recs)
+
+        assert check == True

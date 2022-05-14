@@ -1,6 +1,7 @@
 # CBDC Scraper
 
-This application scrapes sites with informational data on Central Bank Digital Currencies.
+This application scrapes sites with informational data on Central Bank Digital Currencies and outputs a summary file.
+
 
 ## Sites
 

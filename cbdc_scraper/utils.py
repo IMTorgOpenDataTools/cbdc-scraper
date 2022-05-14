@@ -74,19 +74,20 @@ def process_data(data_dict):
                     if (hist["tag"]["name"]==item["tag"])
                     ]
         changes = step1[0]["changes"] if len(step1)>0 else []
-        change = [chg for chg in changes if chg["property"]=="status"]
+        change_list = [chg for chg in changes if chg["property"]=="status"]
+        change = change_list[0] if len(change_list) > 0 else {}
 
-        country = item["country"] if hasattr(item, "country") else np.nan
-        status = item["status"] if hasattr(item, "status") else np.nan
-        bank = item["centralBank"] if hasattr(item, "centralBank") else np.nan
-        currency = tag["currency"] if hasattr(tag, "currency") else np.nan
-        purpose = item["type"] if hasattr(item, "type") else np.nan
-        partner = item["technology"] if hasattr(item,"technology") else np.nan
-        dlt = item["dlt"] if hasattr(item,"dlt") else np.nan
-        tech = item["goals"] if hasattr(item,"goals") else np.nan
-        summary = item["description"] if hasattr(item,"description") else np.nan
-        change = 'Yes' if change else 'No'
-        status_last_qtr = change["valueNew"] if hasattr(change,'valueNew') else np.nan
+        country = item["country"] if "country" in item.keys() else np.nan
+        status = item["status"] if "status" in item.keys() else np.nan
+        bank = item["centralBank"] if "centralBank" in item.keys() else np.nan
+        currency = tag["currency"] if "currency" in tag.keys() else np.nan
+        purpose = item["type"] if "type" in item.keys() else np.nan
+        partner = item["technology"] if "technology" in item.keys() else np.nan
+        dlt = item["dlt"] if "dlt" in item.keys() else np.nan
+        tech = item["goals"] if "goals" in item.keys() else np.nan
+        summary = item["description"] if "description" in item.keys() else np.nan
+        status_change = 'Yes' if change else 'No'
+        status_last_qtr = change["valueNew"] if "valueNew "in change.keys() else np.nan
 
         rec = country_record(
             Country = country,
@@ -98,7 +99,7 @@ def process_data(data_dict):
             DLT = dlt,
             Technology = tech,
             Summary = summary,
-            Change = change,
+            Change = status_change,
             StatusLastQtr = status_last_qtr
         )
         recs.append(rec)
@@ -107,8 +108,11 @@ def process_data(data_dict):
 
 def download_data(recs):
     """Download the data to a file."""
-    download_path = Path("../downloads/").absolute()
+    download_path = Path("./downloads/").absolute()
+    file_path = download_path / 'monthly_report.csv'
 
     df = pd.DataFrame(recs)
+    df.to_csv(file_path, index=False)
     #TODO: determine what the output format should be.
+
     return True
