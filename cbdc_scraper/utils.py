@@ -87,7 +87,7 @@ def process_data(data_dict):
         tech = item["goals"] if "goals" in item.keys() else np.nan
         summary = item["description"] if "description" in item.keys() else np.nan
         status_change = 'Yes' if change else 'No'
-        status_last_qtr = change["valueNew"] if "valueNew "in change.keys() else np.nan
+        status_last_qtr = change["valueNew"] if "valueNew"in change.keys() else np.nan
 
         rec = country_record(
             Country = country,

@@ -14,7 +14,7 @@ from cbdc_scraper.utils import get_data, process_data, download_data
 def test_get_data():
     data = get_data()
 
-    check1 = len(data.keys()) == 4
+    check1 = len(data.keys()) == 5
     check2 = len( list(data.values())[0] ) > 20
     assert all([check1, check2]) == True
 
