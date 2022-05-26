@@ -1,17 +1,18 @@
-{
-    "python.testing.pytestArgs": [
-        "tests"
+{   "python.testing.pytestArgs": [
+    "tests"
     ],
+
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
-    "python.testing.pytestPath": "/home/vscode/.local/share/virtualenvs/CBDC_Scraper-DyZiKfDy/bin/pytest",
-    "python.pipenvPath": "/home/vscode/.local/share/virtualenvs/CBDC_Scraper-DyZiKfDy/bin/python",
+    "python.testing.pytestPath": "/home/vscode/.local/share/virtualenvs/CBDC_scraper-YINk9gpH/bin/pytest",
+    "python.pipenvPath": "/home/vscode/.local/share/virtualenvs/CBDC_scraper-YINk9gpH/bin/python",
 
-    "python.linting.pylintPath": "/home/vscode/.local/share/virtualenvs/CBDC_Scraper-DyZiKfDy/bin/python",
-    "python.autoComplete.extraPaths": ["/home/vscode/.local/share/virtualenvs/CBDC_Scraper-DyZiKfDy/bin/python"],
-    "python.defaultInterpreterPath": "/home/vscode/.local/share/virtualenvs/CBDC_Scraper-DyZiKfDy/bin/python",
+
+    "python.linting.pylintPath": "/home/vscode/.local/share/virtualenvs/CBDC_scraper-YINk9gpH/bin/python",
+    "python.autoComplete.extraPaths": ["/home/vscode/.local/share/virtualenvs/CBDC_scraper-YINk9gpH/bin/python"],
+    "python.defaultInterpreterPath": "/home/vscode/.local/share/virtualenvs/CBDC_scraper-YINk9gpH/bin/python",
     "python.analysis.extraPaths": [
-        "/home/vscode/.local/share/virtualenvs/CBDC_Scraper-DyZiKfDy/"
+        "/home/vscode/.local/share/virtualenvs/CBDC_scraper-YINk9gpH/"
     ],
     "files.exclude": {
         "**/.git": true,

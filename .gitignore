@@ -1,5 +1,6 @@
 # Macbook
-.DS_Store/
+.DS_Store
+.libs
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
