@@ -6,9 +6,12 @@ name = "pypi"
 [packages]
 requests = "*"
 pandas = "*"
-xlsxwriter = "*"
 logzero = "*"
 pytest = "*"
+XlsxWriter = "*"
+selenium = "*"
+pyppeteer = "*"
+ipython = "*"
 
 [dev-packages]
 

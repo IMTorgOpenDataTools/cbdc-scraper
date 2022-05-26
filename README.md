@@ -3,6 +3,35 @@
 This application scrapes sites with informational data on Central Bank Digital Currencies and outputs a summary file.
 
 
+
+## Install
+
+The scraper uses puppeteer which is a headless browser running on NodeJs.  Pyppeteer is the python wrapper for this.
+
+This infrastructure is dependency-heavy, so take care for the following:
+
+* use a container with more dependencies installed, such as Ubuntu, preferably including NodeJs and Python
+* update the repositories list: `sudo apt-get update`
+* NodeJs can be added if it is not already on you system:
+```
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+* install dependencies which may not be included: `sudo apt install -y gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget`
+* run in the project root directory: `npm i puppeteer --save`
+* run `pyppeteer-install` command in a repl to install the chrome binary, prior to using this library
+* ensure code includes: `browser=await launch(options={'args': ['--no-sandbox']})`
+
+
+__References__
+
+* [good installation post](https://www.toptal.com/puppeteer/headless-browser-puppeteer-tutorial)
+* [good reference](https://stackoverflow.com/questions/57217924/pyppeteer-errors-browsererror-browser-closed-unexpectedly)
+* [post](https://www.howtogeek.com/devops/how-to-run-puppeteer-and-headless-chrome-in-a-docker-container/)
+* [issues](https://github.com/pyppeteer/pyppeteer/issues/194)
+
+
+
 ## Sites
 
 Current sites scraped include:
@@ -11,3 +40,14 @@ Current sites scraped include:
 * https://www.atlanticcouncil.org/cbdctracker/
 
 Look into `cbdc_scraper/utils.py` to see the exact urls for documents extracted.
+
+
+
+## Archived
+
+I was never able to get selenium with a chrome driver - headless browser, installed correctly.
+
+* select and download a chromedriver to `.libs/` from site: `https://sites.google.com/chromium.org/driver/`
+* unzip and make it executable: `chmod +x chromedriver`
+* in code, set the driver location: `browser = webdriver.Chrome(executable_path=r"./libs/chromedriver")` but use absolute path
+* install the Chrome binary to the Path
