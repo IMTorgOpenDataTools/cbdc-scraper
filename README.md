@@ -24,6 +24,40 @@ Look into `cbdc_scraper/utils.py` to see the exact urls for documents extracted.
 ## References
 
 
+### Prepare environment
+
+Method-2 from [this ref](https://www.geeksforgeeks.org/scraping-data-in-network-traffic-using-python/).
+
+Java
+
+
+```
+sudo apt-get install software-properties-common
+sudo apt-get install debian-keyring debian-archive-keyring
+sudo apt-add-repository 'deb http://security.debian.org/debian-security stretch/updates main'
+sudo apt install openjdk-8-jdk
+/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -version
+
+nano ~/.bashrc
+export JAVA_HOME=/home/vscode/.local/lib/jvm/java-8-openjdk-amd64
+export PATH=$JAVA_HOME/jre/bin:$PATH
+
+
+unzip browsermob-proxy-2.1.4-bin.zip
+
+JAVACMD=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java browsermob-proxy-2.1.4/bin/browsermob-proxy
+```
+
+BrowserMob Proxy
+```
+wget https://github.com/lightbody/browsermob-proxy/releases/download/browsermob-proxy-2.1.4/browsermob-proxy-2.1.4-bin.zip
+
+```
+
+
+
+
+
 ### Selenium
 
 I was able to get selenium with a chrome driver - headless browser, installed correctly.
@@ -38,6 +72,10 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 google-chrome
 ```
+
+__References__
+
+* [promising shell script that may install everything](https://gist.github.com/ziadoz/3e8ab7e944d02fe872c3454d17af31a5)
 
 
 ### Pyppeteer

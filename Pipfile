@@ -12,6 +12,8 @@ XlsxWriter = "*"
 selenium = "*"
 pyppeteer = "*"
 ipython = "*"
+browsermob-proxy = "*"
+selenium-wire = "*"
 
 [dev-packages]
 
