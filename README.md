@@ -16,6 +16,7 @@ Current sites scraped include:
 
 * https://cbdctracker.org/
 * https://www.atlanticcouncil.org/cbdctracker/
+  - [google docs data update](https://docs.google.com/spreadsheets/d/e/2PACX-1vRvC1JtWY8a2W4b8DLPfnfb9rmhuHBmWO22TvSXXpk25CZTBU9_8f6YtxM9rmBK2YajII5ltDE6ynGZ/pub?gid=0&single=true&output=csv)
 
 Look into `cbdc_scraper/utils.py` to see the exact urls for documents extracted.
 

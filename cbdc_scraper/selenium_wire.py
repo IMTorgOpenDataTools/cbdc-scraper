@@ -22,8 +22,8 @@ chrome_options.add_argument('--ignore_http_methods')
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument('--connection_keep_alive')
-chrome_options.add_argument({'request_storage': 'memory'})
-chrome_options.add_argument({'request_storage_max_size': 100})
+#chrome_options.add_argument({'request_storage': 'memory'})
+#chrome_options.add_argument({'request_storage_max_size': '100'})
 
 # Enable Performance Logging of Chrome.
 desired_capabilities = DesiredCapabilities.CHROME
@@ -48,22 +48,23 @@ def interceptor_abort(request, response):
 
 def selenium_wire_scrape():
     #url = 'https://www.google.com'
-    url = "https://www.atlanticcouncil.org/cbdctracker/" 
+    #url = "https://www.atlanticcouncil.org/cbdctracker/" 
+    url = "https://geoecon.github.io/21.10.20-CBDC-Tracker-Update-R1/?params="
     chrome_driver = "./.libs/chromedriver"
     path_driver = Path(chrome_driver).absolute().__str__()
-    driver = webdriver.Chrome(path_driver, chrome_options=chrome_options, desired_capabilities=desired_capabilities)
+    driver = webdriver.Chrome(path_driver, chrome_options=chrome_options)    #, desired_capabilities=desired_capabilities)
     driver.response_interceptor = interceptor_abort
     # Create a new instance of the Chrome driver
 
     # Go to the Google home page
-    driver.scopes = ['*google*',"*doc*","*geo*"]
+    #driver.scopes = ['*google*',"*doc*","*geo*"]
     driver.get(url)
     time.sleep(1)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     pat = 'doc-08-0k'
-    N = 600
+    N = 6
     
-    
+    """
     try:
         elem = WebDriverWait(driver, N).until(
         EC.presence_of_element_located((By.CLASS_NAME, "svelte-1r1jv7l"))           # the svg map
@@ -76,6 +77,7 @@ def selenium_wire_scrape():
         request = driver.wait_for_request(pat, timeout = N)
     except:
         pass
+    """
 
 
     # Access requests via the `requests` attribute
