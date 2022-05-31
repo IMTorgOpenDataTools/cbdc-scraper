@@ -1,6 +1,12 @@
 # Macbook
+<<<<<<< HEAD
 .DS_Store
 .libs
+=======
+.DS_Store/
+.libs/
+node_modules/
+>>>>>>> headless
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

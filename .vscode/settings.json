@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 {   "python.testing.pytestArgs": [
     "tests"
+=======
+{
+    "python.terminal.activateEnvironment": false,
+    "python.testing.pytestArgs": [
+        "tests/"
+>>>>>>> headless
     ],
 
     "python.testing.unittestEnabled": false,

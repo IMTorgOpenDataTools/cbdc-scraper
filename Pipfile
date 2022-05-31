@@ -6,9 +6,14 @@ name = "pypi"
 [packages]
 requests = "*"
 pandas = "*"
-xlsxwriter = "*"
 logzero = "*"
 pytest = "*"
+XlsxWriter = "*"
+selenium = "*"
+pyppeteer = "*"
+ipython = "*"
+browsermob-proxy = "*"
+selenium-wire = "*"
 
 [dev-packages]
 
