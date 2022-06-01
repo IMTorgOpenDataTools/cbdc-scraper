@@ -40,7 +40,7 @@ Look into `cbdc_scraper/utils.py` to see the exact urls for documents extracted.
 
 ## References
 
-### Selenium-wire
+### Selenium-wire setup
 
 Steps to get selenium-wire with a chrome driver - headless browser, installed correctly.
 

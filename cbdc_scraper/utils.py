@@ -16,25 +16,11 @@ import pandas as pd
 import numpy as np
 import xlsxwriter
 
-
-
-country_record = namedtuple(
-    "CountryRecord",
-        ["Country",
-        "Status",
-        "CentralBank",
-        "Currency",
-        "Purpose",
-        "PartnerFirm",
-        "DLT",
-        "Technology",
-        "Summary",
-        "Change",
-        "StatusLastQtr"
-        ]
+from config._constants import (
+    country_record
 )
 
-notable = ["China", "Jamaica", "Nigeria", "Russia"]
+
 
 
 
@@ -150,15 +136,3 @@ def process_data(data_dict):
         )
         recs.append(rec)
     return recs
-
-
-def download_data(recs):
-    """Download the data to a file."""
-    download_path = Path("./downloads/").absolute()
-    file_path = download_path / 'monthly_report.csv'
-
-    df = pd.DataFrame(recs)
-    df.to_csv(file_path, index=False)
-    #TODO: determine what the output format should be.
-
-    return True

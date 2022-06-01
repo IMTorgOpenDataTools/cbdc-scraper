@@ -10,12 +10,17 @@ __license__ = "MIT"
 import argparse
 from logzero import logger
 
+from output import Output
 from utils import (
     get_data_atlantic,
     get_data_cbdc,
     process_data,
-    download_data
     )
+from config._constants import (
+    emails_file,
+    report_dir
+)
+
 
 
 def main(args):
@@ -28,8 +33,16 @@ def main(args):
     data_dict.update(data_dict_atlantic)
 
     recs = process_data(data_dict)
-    check = download_data(recs)
+
+    output = Output(
+        report_dir = report_dir,
+        emails_file = emails_file
+        )
+    check = output.create_report(recs=recs)
+    if check:
+        output.send_notification()
     logger.info(f"data downloaded: {check}")
+
 
 
 if __name__ == "__main__":

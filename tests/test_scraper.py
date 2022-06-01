@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Main entrypoint to the script.
+Test the Scraper class.
 """
 
 __author__ = "Jason Beach"
@@ -11,8 +11,7 @@ __license__ = "MIT"
 from cbdc_scraper.utils import (
     get_data_cbdc, 
     get_data_atlantic,
-    process_data, 
-    download_data
+    process_data
 )
 
 
@@ -46,7 +45,7 @@ def test_process_data():
 def test_complete_process():
         data_dict = get_data_cbdc()
         recs = process_data(data_dict)
-        check = download_data(recs)
+        #check = download_data(recs)
 
         assert check == True
 '''
