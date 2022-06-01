@@ -1,4 +1,11 @@
+#!/usr/bin/env python3
+"""
+Selenium-wire proxy used to get csv from backend.
+"""
 
+__author__ = "Jason Beach"
+__version__ = "0.1.0"
+__license__ = "MIT"
 
 
 from seleniumwire import webdriver

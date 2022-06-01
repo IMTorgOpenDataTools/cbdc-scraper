@@ -10,14 +10,26 @@ __license__ = "MIT"
 import argparse
 from logzero import logger
 
-from utils import get_data
+from utils import (
+    get_data_atlantic,
+    get_data_cbdc,
+    process_data,
+    download_data
+    )
 
 
 def main(args):
-    """ Main entry point of the app """
-    logger.info("hello world")
+    """ Main entry point of the app. """
     logger.info(args)
-    get_data()
+    data_dict = {}
+    data_dict_cbdc = get_data_cbdc()
+    data_dict_atlantic = get_data_atlantic()
+    data_dict.update(data_dict_cbdc)
+    data_dict.update(data_dict_atlantic)
+
+    recs = process_data(data_dict)
+    check = download_data(recs)
+    logger.info(f"data downloaded: {check}")
 
 
 if __name__ == "__main__":
