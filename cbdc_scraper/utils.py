@@ -11,12 +11,14 @@ from asyncio.log import logger
 from pathlib import Path
 from collections import namedtuple
 
+import sys
 import requests
 import pandas as pd
 import numpy as np
 import xlsxwriter
 
-from config._constants import (
+sys.path.append(Path('config').absolute().as_posix() )
+from _constants import (
     country_record
 )
 

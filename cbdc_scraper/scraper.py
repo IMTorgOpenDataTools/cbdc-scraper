@@ -7,8 +7,10 @@ __author__ = "Jason Beach"
 __version__ = "0.1.0"
 __license__ = "MIT"
 
+import sys
 import argparse
 from logzero import logger
+from pathlib import Path
 
 from output import Output
 from utils import (
@@ -16,7 +18,8 @@ from utils import (
     get_data_cbdc,
     process_data,
     )
-from config._constants import (
+sys.path.append(Path('config').absolute().as_posix() )
+from _constants import (
     emails_file,
     report_dir
 )

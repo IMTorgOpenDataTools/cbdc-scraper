@@ -22,9 +22,11 @@ import xlsxwriter
 class Output:
 
     def __init__(self, report_dir = None, emails_file = None):
-        self.report_dir = report_dir
+        if report_dir is None:
+            report_dir = './downloads'
+        self.report_dir = Path(report_dir).absolute()
+        self.report_dir.mkdir(parents=True, exist_ok=True)
         self.emails_file = emails_file
-        pass
 
 
     def send_notification(self):
@@ -41,15 +43,14 @@ class Output:
             #test = subprocess.Popen(, stdout=subprocess.PIPE)
             bashCommand = ["mailx", "-s", subject, email, "<", body]
             test = subprocess.run(bashCommand, capture_output=True, text=True)
-            output = test.communicate()[0]
-            checks.append(output)
+            checks.append(test)
 
         return checks
 
 
     def create_report(self, recs):
         """Download the data to a file."""
-        download_path = Path( self.report_dir ).absolute()
+        download_path = self.report_dir
         file_path = download_path / 'monthly_report.xlsx'
 
         df = pd.DataFrame(recs)
