@@ -117,6 +117,7 @@ def process_data(data_dict):
         currency = tag["currency"] if "currency" in tag.keys() else np.nan
         purpose = item["type"] if "type" in item.keys() else np.nan
         partner = item["technology"] if "technology" in item.keys() else np.nan
+        software = item["Underlying technology"] if "Underlying technology" in item.keys() else np.nan
         dlt = item["dlt"] if "dlt" in item.keys() else np.nan
         tech = item["goals"] if "goals" in item.keys() else np.nan
         summary = item["description"] if "description" in item.keys() else np.nan
@@ -126,15 +127,22 @@ def process_data(data_dict):
         rec = country_record(
             Country = country,
             Status = status,
+            StatusChange = status_change,
+            StatusLastQtr = status_last_qtr,
+
             CentralBank = bank,
-            Currency = currency,
+            NationalBankPresence = '',
+            BankNames = '',
+
+            CurrencyName = currency,
             Purpose = purpose,
             PartnerFirm = partner,
-            DLT = dlt,
+            Software = software,
+            LedgerType = dlt,
+
+            BlockChainPermissions = '',
             Technology = tech,
             Summary = summary,
-            Change = status_change,
-            StatusLastQtr = status_last_qtr
         )
         recs.append(rec)
     return recs

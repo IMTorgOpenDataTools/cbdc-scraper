@@ -43,7 +43,8 @@ def main(args):
         )
     check = output.create_report(recs=recs)
     if check:
-        output.send_notification()
+        checks = output.send_notification()
+        logger.info(f"result of email notifications: {checks}")
     logger.info(f"data downloaded: {check}")
 
 

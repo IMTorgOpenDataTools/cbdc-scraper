@@ -25,7 +25,7 @@ output = Output(
 
 def test_send_notification():
     checks = output.send_notification()
-    assert True == True
+    assert checks != []
 
 def test_create_report():
     recs = []

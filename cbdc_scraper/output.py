@@ -10,6 +10,7 @@ __license__ = "MIT"
 from asyncio.log import logger
 from pathlib import Path
 import subprocess
+from subprocess import PIPE, STDOUT
 from collections import namedtuple
 
 import requests
@@ -32,18 +33,20 @@ class Output:
     def send_notification(self):
         """Send email notification that report is updated."""
 
-        subject = 'SEC Report Update'
-        body = "Dear Sir/Ma'am, this is a notification that the SEC earnings report is updated.  You can find it in the following shared drive: `\hqfile01\sec`."
+        subject = 'CBDC Tracker Update'
+        body = b"Dear Sir/Ma'am, this is a notification that the Central Bank Digital Currency (CBDC) Tracker report is updated.  You can find it in the following shared drive: `\hqfile01\sec_edgar\cbdc_tracker\`."
 
         df_emails = pd.read_csv(self.emails_file)
         emails = df_emails['address'].tolist()
 
         checks = []
-        for email in emails:
-            #test = subprocess.Popen(, stdout=subprocess.PIPE)
-            bashCommand = ["mailx", "-s", subject, email, "<", body]
-            test = subprocess.run(bashCommand, capture_output=True, text=True)
-            checks.append(test)
+        bashCommand = ["mailx", "-s", subject, *emails]
+        try:
+            p = subprocess.Popen(bashCommand, stdin=PIPE, stdout=PIPE, stderr=STDOUT)
+            result = p.communicate(input=body)[0]
+            checks.append(result)
+        except:
+            print("failed to send email notification.")
 
         return checks
 

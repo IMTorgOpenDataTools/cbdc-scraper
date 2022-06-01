@@ -15,15 +15,22 @@ country_record = namedtuple(
     "CountryRecord",
         ["Country",
         "Status",
+        "StatusChange",
+        "StatusLastQtr",
+
         "CentralBank",
-        "Currency",
+        "NationalBankPresence",
+        "BankNames",
+
+        "CurrencyName",
         "Purpose",
         "PartnerFirm",
-        "DLT",
+        "Software",
+        "LedgerType",
+        "BlockChainPermissions",
+
         "Technology",
         "Summary",
-        "Change",
-        "StatusLastQtr"
         ]
 )
 
