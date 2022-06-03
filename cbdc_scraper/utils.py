@@ -14,9 +14,9 @@ from collections import namedtuple
 import sys
 import requests
 import datetime as dt
-import pandas as pd
 import numpy as np
-import xlsxwriter
+import pandas as pd
+pd.options.mode.chained_assignment = None  # default='warn'
 
 sys.path.append(Path('config').absolute().as_posix() )
 from _constants import (
@@ -77,7 +77,7 @@ def get_data_atlantic():
         column_replacements = {v:'Previous Status' for k,v in prev_qtr_month.items()}
         df.rename(columns=column_replacements, inplace=True)
         df["Changed Status"] = "No"
-        df["Changed Status"][df["Previous Status"] != df["Present Status"]] = "Yes"
+        df.loc[ df["Previous Status"] != df["Present Status"], "Changed Status"] = "Yes"
 
         k,v = list(files.items())[0]
         data_dict[k] = df.to_dict("records")
@@ -103,19 +103,12 @@ def process_data(data_dict):
             suffixes=["","atlantic"],
             how = "left"
             )
-    '''
-    def check_launch_status(row):
-        if row["Present Status"] == "Launched" and row["status"] != "Launched":
-            return "Launched"
-        else:
-            return row["status"]
-    '''
-
     df["mod_status"] = df["Present Status"]
     data_dict["merged"] = df.to_dict("records")
 
     for item in data_dict["merged"]:
-        # additional tables
+
+        # additional tables (may not be useful)
         tag = [tag for tag in data_dict["tags"] if tag["name"] == item["tag"]][0]
         content = data_dict["history"]["content"][0]
         step1 = [hist for hist in content["tags"] 
@@ -123,8 +116,8 @@ def process_data(data_dict):
                     ]
         changes = step1[0]["changes"] if len(step1)>0 else []
         change_list = [chg for chg in changes if chg["property"]=="status"]
-        #change = change_list[0] if len(change_list) > 0 else {}                #original change
 
+        # merged table
         country = item["country"] if "country" in item.keys() else np.nan
         status = item["mod_status"] if "mod_status" in item.keys() else np.nan
         bank = item["centralBank"] if "centralBank" in item.keys() else np.nan
@@ -135,9 +128,10 @@ def process_data(data_dict):
         dlt = item["dlt"] if "dlt" in item.keys() else np.nan
         tech = item["goals"] if "goals" in item.keys() else np.nan
         summary = item["description"] if "description" in item.keys() else np.nan
-        status_change = item["Changed Status"]                                  #current change
+        status_change = item["Changed Status"]
         status_last_qtr = item["Previous Status"] if status_change == "Yes" else np.nan
 
+        # append record
         rec = country_record(
             Country = country,
             Status = status,
