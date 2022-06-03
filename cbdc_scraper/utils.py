@@ -13,6 +13,7 @@ from collections import namedtuple
 
 import sys
 import requests
+import datetime as dt
 import pandas as pd
 import numpy as np
 import xlsxwriter
@@ -56,22 +57,32 @@ def get_data_cbdc():
     return data
 
 
+
 def get_data_atlantic():
     """Get `atlanticcouncil` data from `docs.google` api.
     Return dict of dataframes.
     """
     url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQh27kpYjCRmNoWa4FEpWqLSxLLaqK_hlgqP6wGQLp8Pum7guAYS6i0qt6wIRAPvb5Up6-6wvmTN05s/pub?gid=0&single=true&output=csv"
-    files = {"CBDC Tracker": "CBDC Tracker Current Updates"}
-    columns = ["Name", "Present Status", "Underlying technology"]
+    files = {"Atlantic": "CBDC Tracker Current Updates"}
+    columns = ["Name", "Present Status", "Underlying technology"]            #TODO: add as primary Status and change from prev qtr status
+    prev_qtr_month = {1:"February Status", 2:"April Status", 3:"June Status", 4:"October Status"}
 
     data_dict = {}
     try:
         loaded_df = pd.read_csv(url)
+
+        current_qtr = pd.Timestamp(dt.date.today()).quarter
+        columns.append( prev_qtr_month[current_qtr] )
         df = loaded_df[columns]
+        column_replacements = {v:'Previous Status' for k,v in prev_qtr_month.items()}
+        df.rename(columns=column_replacements, inplace=True)
+        df["Changed Status"] = "No"
+        df["Changed Status"][df["Previous Status"] != df["Present Status"]] = "Yes"
+
         k,v = list(files.items())[0]
-        data_dict[k] = df
+        data_dict[k] = df.to_dict("records")
     except:
-        logger.info("failed to get `atlanticc_ouncil` data")
+        logger.info("failed to get `atlantic_council` data")
 
     return data_dict
 
@@ -80,28 +91,31 @@ def get_data_atlantic():
 def process_data(data_dict):
     """Transform data from original dataframe to output records.
 
-    input: dict_of_df
+    input: dict_of_records
     output: recs
     """
     recs = []
     df_currencies = pd.DataFrame(data_dict["currencies"])
+    df_atlantic = pd.DataFrame(data_dict["Atlantic"])
     
-    df = pd.merge(df_currencies, data_dict["CBDC Tracker"], 
+    df = pd.merge(df_currencies, df_atlantic, 
             left_on="country", right_on="Name",
             suffixes=["","atlantic"],
             how = "left"
             )
-
+    '''
     def check_launch_status(row):
         if row["Present Status"] == "Launched" and row["status"] != "Launched":
             return "Launched"
         else:
             return row["status"]
+    '''
 
-    df["mod_status"] = df.apply(check_launch_status, axis=1)
+    df["mod_status"] = df["Present Status"]
     data_dict["merged"] = df.to_dict("records")
 
     for item in data_dict["merged"]:
+        # additional tables
         tag = [tag for tag in data_dict["tags"] if tag["name"] == item["tag"]][0]
         content = data_dict["history"]["content"][0]
         step1 = [hist for hist in content["tags"] 
@@ -109,7 +123,7 @@ def process_data(data_dict):
                     ]
         changes = step1[0]["changes"] if len(step1)>0 else []
         change_list = [chg for chg in changes if chg["property"]=="status"]
-        change = change_list[0] if len(change_list) > 0 else {}
+        #change = change_list[0] if len(change_list) > 0 else {}                #original change
 
         country = item["country"] if "country" in item.keys() else np.nan
         status = item["mod_status"] if "mod_status" in item.keys() else np.nan
@@ -121,8 +135,8 @@ def process_data(data_dict):
         dlt = item["dlt"] if "dlt" in item.keys() else np.nan
         tech = item["goals"] if "goals" in item.keys() else np.nan
         summary = item["description"] if "description" in item.keys() else np.nan
-        status_change = 'Yes' if change else 'No'
-        status_last_qtr = change["valueNew"] if "valueNew"in change.keys() else np.nan
+        status_change = item["Changed Status"]                                  #current change
+        status_last_qtr = item["Previous Status"] if status_change == "Yes" else np.nan
 
         rec = country_record(
             Country = country,

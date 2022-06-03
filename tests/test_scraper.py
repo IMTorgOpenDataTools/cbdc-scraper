@@ -26,7 +26,7 @@ def test_get_data_cbdc():
 def test_get_data_atlantic():
     data = get_data_atlantic()
 
-    assert [*data.keys()] == ['CBDC Tracker']
+    assert [*data.keys()] == ['Atlantic']
 
 
 def test_process_data():

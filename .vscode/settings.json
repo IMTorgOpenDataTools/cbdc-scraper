@@ -3,6 +3,7 @@
     "python.testing.pytestArgs": [
         "tests/"
     ],
+    "python.experiments.optInto": ["All"],
 
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,

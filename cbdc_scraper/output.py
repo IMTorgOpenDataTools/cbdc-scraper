@@ -34,7 +34,10 @@ class Output:
         """Send email notification that report is updated."""
 
         subject = 'CBDC Tracker Update'
-        body = b"Dear Sir/Ma'am, this is a notification that the Central Bank Digital Currency (CBDC) Tracker report is updated.  You can find it in the following shared drive: `\hqfile01\sec_edgar\cbdc_tracker\`."
+        body = b'''Dear Sir/Ma'am, this is a notification that the Central Bank Digital Currency 
+                (CBDC) Tracker report is updated.  You can find it in the following shared drive: 
+                `\hqfile01\sec_edgar\cbdc_tracker\`.
+                '''
 
         df_emails = pd.read_csv(self.emails_file)
         emails = df_emails['address'].tolist()

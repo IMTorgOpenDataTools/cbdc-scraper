@@ -30,17 +30,24 @@ def test_send_notification():
 def test_create_report():
     recs = []
     rec = country_record(
-                Country = 'country',
-                Status = 'status',
-                CentralBank = 'bank',
-                Currency = 'currency',
-                Purpose = 'purpose',
-                PartnerFirm = 'partner',
-                DLT = 'dlt',
-                Technology = 'tech',
-                Summary = 'summary',
-                Change = 'status_change',
-                StatusLastQtr = 'status_last_qtr'
+                Country="n/a",
+                Status="n/a",
+                StatusChange="n/a",
+                StatusLastQtr="n/a",
+
+                CentralBank="n/a",
+                NationalBankPresence="n/a",
+                BankNames="n/a",
+
+                CurrencyName="n/a",
+                Purpose="n/a",
+                PartnerFirm="n/a",
+                Software="n/a",
+                LedgerType="n/a",
+                BlockChainPermissions="n/a",
+
+                Technology="n/a",
+                Summary="n/a",
                 )
     recs.append(rec)
     check = output.create_report(recs=recs)
