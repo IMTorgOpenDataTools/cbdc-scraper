@@ -49,10 +49,14 @@ def get_data_cbdc():
     data = {}
     for k,v in files.items():
         url = f"{url_head}/{v}"
-        resp = requests.get(url, headers=headers)
-        if resp.status_code == 200:
-            content = resp.json()
-            data[k] = content
+        try:
+            resp = requests.get(url, headers=headers)
+            if resp.status_code == 200:
+                content = resp.json()
+                data[k] = content
+        except:
+            #TODO: make explicit exception
+            pass
     
     return data
 
@@ -82,6 +86,7 @@ def get_data_atlantic():
         k,v = list(files.items())[0]
         data_dict[k] = df.to_dict("records")
     except:
+        #TODO: make explicit exception
         logger.info("failed to get `atlantic_council` data")
 
     return data_dict
@@ -104,6 +109,9 @@ def process_data(data_dict):
             how = "left"
             )
     df["mod_status"] = df["Present Status"]
+    #TODO: check valid, missing, duplicate values
+    #TODO: check obs counts
+    #TODO: log significant changes from previous quarter
     data_dict["merged"] = df.to_dict("records")
 
     for item in data_dict["merged"]:

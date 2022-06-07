@@ -28,7 +28,9 @@ from _constants import (
 
 def main(args):
     """ Main entry point of the app. """
-    logger.info(args)
+    #TODO: log time to completion
+    #TODO: exceptions and log errors should send email notifications
+    logger.info(args)       
     data_dict = {}
     data_dict_cbdc = get_data_cbdc()
     data_dict_atlantic = get_data_atlantic()
