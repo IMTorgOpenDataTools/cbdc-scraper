@@ -13,7 +13,7 @@ pipenv install
 ```
 
 Update the following:
-* `config/emails.csv` with users who need notification of report completion
+* `config/emails.csv` with users and admin who need notification of report completion.  Admin receive logging errors, also.
 * `config/_consstants.py` with the appropriate report output directory
 
 See the References to selenium-wire for installation and configuration.  This is only necessary when using a proxy for obtaining the `docs.google.com` url of atlanticcouncil backend data; otherwise, selenium-wire is not necessary.

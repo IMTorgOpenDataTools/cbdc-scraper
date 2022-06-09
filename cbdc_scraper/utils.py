@@ -7,11 +7,11 @@ __author__ = "Your Name"
 __version__ = "0.1.0"
 __license__ = "MIT"
 
-from asyncio.log import logger
-from pathlib import Path
-from collections import namedtuple
+
 
 import sys
+from pathlib import Path
+
 import requests
 import datetime as dt
 import numpy as np

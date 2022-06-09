@@ -13,10 +13,8 @@ import subprocess
 from subprocess import PIPE, STDOUT
 from collections import namedtuple
 
-import requests
 import pandas as pd
 import numpy as np
-import xlsxwriter
 
 
 
