@@ -20,6 +20,8 @@ pd.options.mode.chained_assignment = None  # default='warn'
 
 sys.path.append(Path('config').absolute().as_posix() )
 from _constants import (
+    logger,
+    output,
     country_record
 )
 
@@ -32,6 +34,7 @@ def get_data_cbdc():
     """Get the data file from web page.
     Return dict of lists (records).
     """
+    #constants
     url_head= "https://cbdctracker.org/api"
     files = {"currencies":"currencies", 
             "tags":"/currencies/tags", 
@@ -46,6 +49,7 @@ def get_data_cbdc():
         "Host": "efts.sec.gov"
         }
 
+    #request data
     data = {}
     for k,v in files.items():
         url = f"{url_head}/{v}"
@@ -54,9 +58,17 @@ def get_data_cbdc():
             if resp.status_code == 200:
                 content = resp.json()
                 data[k] = content
+                logger.info("Data from cbdc is scraped.")
         except:
-            #TODO: make explicit exception
-            pass
+            logger.error("Data from cbdc is NOT scraped.")
+            output.send_notification(error=True)
+            exit()
+
+    #corrections for 'currencies'
+    df_currencies = pd.DataFrame(data["currencies"])
+    df_currencies.sort_values(by=['country','digitalCurrency'], inplace=True)                      #<<<SELECTION_CHOICE
+    df_currencies.drop_duplicates(subset=["country"], inplace=True)
+    data["currencies"] = df_currencies.to_dict("records")
     
     return data
 
@@ -85,11 +97,32 @@ def get_data_atlantic():
 
         k,v = list(files.items())[0]
         data_dict[k] = df.to_dict("records")
+        logger.info("Data from atlantic council is scraped.")
     except:
-        #TODO: make explicit exception
-        logger.info("failed to get `atlantic_council` data")
+        logger.error("failed to get `atlantic_council` data")
+        output.send_notification(error=True)
+        exit()
 
     return data_dict
+
+
+
+def check_dataframe(df):
+    """Check dataframe for basic problems"""
+    columns = ["country", "mod_status", "centralBank", "tag", 
+                "type", "technology", "Underlying technology", "dlt", 
+                "description", "Changed Status", "Previous Status"
+                ]
+    idx_cols = ['country','mod_status']
+
+    cols = all( [col in df.columns for col in columns] )
+    obs = df.shape[0] > 0
+    dups = df[df.duplicated(subset=idx_cols) == True].shape[0] == 0
+    missing = df[df[idx_cols].isnull().any(axis=1)].shape[0] == 0  if obs == True else False
+
+    checks = [cols, obs, dups, missing]
+    check = all(checks) == True
+    return check
 
 
 
@@ -109,9 +142,13 @@ def process_data(data_dict):
             how = "left"
             )
     df["mod_status"] = df["Present Status"]
-    #TODO: check valid, missing, duplicate values
-    #TODO: check obs counts
-    #TODO: log significant changes from previous quarter
+    df['mod_status'][df["mod_status"].isna()==True] = df['status']                      #<<<SELECTION_CHOICE
+
+    check = check_dataframe(df)
+    if not check:
+        logger.error("dataframe did not meet `check_dataframe()` requirements")
+        output.send_notification(error=True)
+        exit()
     data_dict["merged"] = df.to_dict("records")
 
     for item in data_dict["merged"]:
@@ -138,7 +175,7 @@ def process_data(data_dict):
         summary = item["description"] if "description" in item.keys() else np.nan
         status_change = item["Changed Status"]
         status_last_qtr = item["Previous Status"] if status_change == "Yes" else np.nan
-
+        
         # append record
         rec = country_record(
             Country = country,

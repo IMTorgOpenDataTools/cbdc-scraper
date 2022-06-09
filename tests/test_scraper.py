@@ -7,10 +7,14 @@ __author__ = "Jason Beach"
 __version__ = "0.1.0"
 __license__ = "MIT"
 
+import pandas as pd
+
+
 
 from cbdc_scraper.utils import (
     get_data_cbdc, 
     get_data_atlantic,
+    check_dataframe,
     process_data
 )
 
@@ -29,6 +33,12 @@ def test_get_data_atlantic():
     assert [*data.keys()] == ['Atlantic']
 
 
+def test_check_dataframe():
+    df = pd.DataFrame()
+    check = check_dataframe(df)
+    assert check == False
+
+
 def test_process_data():
     data_dict = {}
     data_dict_cbdc = get_data_cbdc()
@@ -38,14 +48,4 @@ def test_process_data():
 
     recs = process_data(data_dict)
 
-    assert len(recs) == 103
-
-
-'''
-def test_complete_process():
-        data_dict = get_data_cbdc()
-        recs = process_data(data_dict)
-        #check = download_data(recs)
-
-        assert check == True
-'''
+    assert len(recs) == 87
