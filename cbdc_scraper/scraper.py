@@ -16,6 +16,7 @@ from utils import (
     get_data_atlantic,
     get_data_cbdc,
     process_data,
+    export_data
     )
 sys.path.append(Path('config').absolute().as_posix() )
 from _constants import (
@@ -38,7 +39,8 @@ def main(args):
     data_dict.update(data_dict_atlantic)
 
     # merge and process
-    recs = process_data(data_dict)
+    data_dict = process_data(data_dict)
+    recs = export_data(data_dict)
 
     # export
     check = output.create_report(recs=recs)

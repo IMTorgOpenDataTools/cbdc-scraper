@@ -124,7 +124,8 @@ def get_data_atlantic():
 
     qtr_month = {4:"February Status", 1:"April Status", 2:"June Status", 3:"October Status"}
 
-    columns = {"Name":"Country", "Central Bank Name":"Central Bank", 
+    columns = {"Name":"Country", "Present Status": "Status",
+                "Central Bank Name":"Central Bank", 
                 "Name of CBDC":"Digital Currency Name", "Use case":"Purpose",
                 'Technology partnership':"Technology provider", "Underlying technology":"Software",
                 'Infrastructure: DLT or conventional':"Ledger Type", 'Access: token or account':"Permission"
@@ -144,8 +145,8 @@ def get_data_atlantic():
         loaded_df = pd.read_csv(url)
 
         current_qtr = pd.Timestamp(dt.date.today()).quarter
-        current_qtr_month = qtr_month[current_qtr]
-        columns[current_qtr_month] = "Status"
+        #current_qtr_month = qtr_month[current_qtr]
+        #columns[current_qtr_month] = "Status"
         last_qtr_month = qtr_month[ get_prev_qtr(current_qtr) ]
         columns[last_qtr_month] = "Last Qtr Status"
         loaded_df.rename(columns=columns, inplace=True)
