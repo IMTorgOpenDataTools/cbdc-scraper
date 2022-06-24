@@ -17,7 +17,7 @@ from output import Output
 
 # variables
 emails_file = './config/emails.csv'
-email_network_drive = '\\hqfiles01\sec_edgar\cbdc_tracker$'
+email_network_drive = r'\\hqfiles01\sec_edgar\cbdc_tracker$'
 
 report_dir = './downloads'
 report_copy_dir = './downloads'

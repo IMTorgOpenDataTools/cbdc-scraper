@@ -85,11 +85,11 @@ class Output:
         df_emails = df[df['notify'] == True]
 
         #scenarios
-        template_success = f'''\
-                Dear Sir/Ma'am,\
+        template_success = f'''\\
+                Dear Sir/Ma'am,\\
                 This is a notification that the Central Bank Digital Currency 
-                (CBDC) Tracker report is updated.  You can find it in the following shared drive:\ 
-                {self.email_network_drive}\
+                (CBDC) Tracker report is updated.  You can find it in the following shared drive:\\ 
+                {self.email_network_drive}\\
                 '''
         body_success = bytes(template_success, encoding='utf8')
         emails_success = df_emails['address'].tolist()
