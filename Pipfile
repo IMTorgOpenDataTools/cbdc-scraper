@@ -12,6 +12,7 @@ XlsxWriter = "*"
 selenium = "*"
 ipython = "*"
 selenium-wire = "*"
+pytest-cov = "*"
 
 [dev-packages]
 
