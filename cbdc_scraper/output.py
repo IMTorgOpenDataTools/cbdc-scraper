@@ -7,6 +7,7 @@ __author__ = "Your Name"
 __version__ = "0.1.0"
 __license__ = "MIT"
 
+
 from asyncio.log import logger
 from pathlib import Path
 import subprocess
@@ -27,13 +28,47 @@ class Output:
         self.report_dir.mkdir(parents=True, exist_ok=True)
         self.emails_file = emails_file
 
+    
+    def check_dataframes(self, data_dict):
+        """Check both dataframes for basic problems, and compare for validity.
+        """
+
+        columns_before_processing = ['Country', 'Status', 'Changed Status', 'Last Qtr Status', 
+                    'Central Bank', 'Digital Currency Name', 'Purpose', 
+                    'Technology provider', 'Software', 'Ledger Type', 'Permission']
+        columns_after_processing = ['Country', 'Status', 'StatusChange', 'StatusLastQtr', 
+                    'CentralBank', 'NationalBankPresence', 'BankNames', 
+                    'CurrencyName', 'Purpose', 'PartnerFirm', 'Software', 
+                    'LedgerType', 'BlockChainPermissions', 'Technology', 'Summary']
+        idx_cols = ['Country','Status']
+
+        results = []
+        for key, recs in data_dict.items():
+            df = pd.DataFrame(recs)
+            try:
+                cols = all( [col in df.columns for col in columns_before_processing] )
+                if cols == False:
+                    cols = all( [col in df.columns for col in columns_after_processing] )
+                obs = df.shape[0] > 0
+                dups = df[df.duplicated(subset=idx_cols) == True].shape[0] == 0
+                missing = df[df[idx_cols].isnull().any(axis=1)].shape[0] == 0  if obs == True else False
+                checks = [cols, obs, dups, missing]
+                check = all(checks) == True
+                results.append(check)
+            except:
+                logger.error("error in checking dfs")
+                results.append(False)
+        result = all(results) == True
+        return result
+
 
     def send_notification(self, error = False):
         """Send email notification that report is updated."""
 
         #constants
         subject = 'CBDC Tracker Update'
-        df_emails = pd.read_csv(self.emails_file)
+        df = pd.read_csv(self.emails_file)
+        df_emails = df[df['notify'] == True]
 
         #scenarios
         body_success = b'''Dear Sir/Ma'am, this is a notification that the Central Bank Digital Currency 
@@ -71,7 +106,12 @@ class Output:
         download_path = self.report_dir
         file_path = download_path / 'monthly_report.xlsx'
 
-        df = pd.DataFrame(recs)
-        df.to_excel(file_path, index=False)
+        data_dict = {'recs': recs}
+        result = self.check_dataframes(data_dict)
+        if result:
+            df = pd.DataFrame(recs)
+            df.to_excel(file_path, index=False)
+            return True
+        else:
+            return False
         
-        return True

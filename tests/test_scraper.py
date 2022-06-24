@@ -14,7 +14,6 @@ import pandas as pd
 from cbdc_scraper.utils import (
     get_data_cbdc, 
     get_data_atlantic,
-    check_dataframes,
     process_data,
     export_data
 )
@@ -22,24 +21,16 @@ from cbdc_scraper.utils import (
 
 def test_get_data_cbdc():
     data = get_data_cbdc()
-
-    check1 = len(data.keys()) == 5
+    check1 = list(data.keys()) == ['cbdc']
     check2 = len( list(data.values())[0] ) > 20
     assert all([check1, check2]) == True
 
 
 def test_get_data_atlantic():
     data = get_data_atlantic()
-
-    assert [*data.keys()] == ['Atlantic']
-
-
-def test_check_dataframes():
-    data_dict = {}
-    df = pd.DataFrame()
-    data_dict['df'] = df
-    check = check_dataframes(data_dict)
-    assert check == [False]
+    check1 = list(data.keys()) == ['Atlantic']
+    check2 = len( list(data.values())[0] ) > 20
+    assert all([check1, check2]) == True
 
 
 def test_process_data():

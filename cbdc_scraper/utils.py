@@ -166,34 +166,6 @@ def get_data_atlantic():
 
 
 
-def check_dataframes(data_dict):
-    """Check both dataframes for basic problems, and compare for validity.
-    """
-
-    columns = ['Country', 'Status', 'Changed Status', 'Last Qtr Status', 
-                'Central Bank', 'Digital Currency Name', 'Purpose', 
-                'Technology provider', 'Software', 'Ledger Type', 'Permission']
-    idx_cols = ['Country','Status']
-
-    result = []
-    for key, recs in data_dict.items():
-        df = pd.DataFrame(recs)
-        try:
-            cols = all( [col in df.columns for col in columns] )
-            obs = df.shape[0] > 0
-            dups = df[df.duplicated(subset=idx_cols) == True].shape[0] == 0
-            missing = df[df[idx_cols].isnull().any(axis=1)].shape[0] == 0  if obs == True else False
-        except:
-            logger.error("error in checking dfs")
-            exit()
-
-        checks = [cols, obs, dups, missing]
-        check = all(checks) == True
-        result.append(check)
-    return result
-
-
-
 def process_data(data_dict):
     """Transform data from original dataframe to output records.
 
@@ -201,7 +173,7 @@ def process_data(data_dict):
     output: recs
     """
 
-    check = check_dataframes(data_dict)
+    check = output.check_dataframes(data_dict)
     if not check:
         logger.error("dataframe did not meet `check_dataframe()` requirements")
         output.send_notification(error=True)

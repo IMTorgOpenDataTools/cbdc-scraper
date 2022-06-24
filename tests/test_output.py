@@ -7,12 +7,16 @@ __author__ = "Jason Beach"
 __version__ = "0.1.0"
 __license__ = "MIT"
 
+
 from cbdc_scraper.output import Output
 from config._constants import (
     emails_file,
     report_dir,
     country_record
 )
+
+import pandas as pd
+import numpy as np
 
 
 
@@ -22,12 +26,17 @@ output = Output(
     )
 
 
+def test_check_dataframes():
+    df = pd.DataFrame()
+    data_dict = {'df': df}
+    check = output.check_dataframes(data_dict)
+    assert check == False
 
 def test_send_notification():
-    checks = output.send_notification()
+    checks = output.send_notification(error=True)
     assert checks != []
 
-def test_create_report():
+def test_create_report_fail():
     recs = []
     rec = country_record(
                 Country="n/a",
@@ -48,6 +57,32 @@ def test_create_report():
 
                 Technology="n/a",
                 Summary="n/a",
+                )
+    recs.append(rec)
+    check = output.create_report(recs=recs)
+    assert check == False
+
+def test_create_report_succeed():
+    recs = []
+    rec = country_record(
+                Country= "Nowhere",
+                Status= "Good",
+                StatusChange= np.nan,
+                StatusLastQtr= np.nan,
+
+                CentralBank= "First Central Bank",
+                NationalBankPresence= np.nan,
+                BankNames= np.nan,
+
+                CurrencyName= "eDollar",
+                Purpose= np.nan,
+                PartnerFirm= np.nan,
+                Software= np.nan,
+                LedgerType= np.nan,
+                BlockChainPermissions= np.nan,
+
+                Technology= np.nan,
+                Summary= np.nan,
                 )
     recs.append(rec)
     check = output.create_report(recs=recs)

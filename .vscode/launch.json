@@ -20,5 +20,13 @@
             "args": [],
             "console": "integratedTerminal"
         },
+        {
+            "name": "scraper",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/cbdc_scraper/scraper.py",
+            "args": [],
+            "console": "integratedTerminal"
+        },
     ]
 }
