@@ -7,8 +7,7 @@ __author__ = "Your Name"
 __version__ = "0.1.0"
 __license__ = "MIT"
 
-
-from asyncio.log import logger
+import datetime
 from pathlib import Path
 import subprocess
 from subprocess import PIPE, STDOUT
@@ -21,12 +20,27 @@ import numpy as np
 
 class Output:
 
-    def __init__(self, report_dir = None, emails_file = None):
+    def __init__(self, report_copy_dir = None, report_dir = None, emails_file_or_dictlist = None, email_network_drive = None, logger = None):
+
+        if report_copy_dir is None:
+            report_copy_dir = './downloads'
+        self.report_copy_dir = Path(report_dir).absolute()
+        self.report_copy_dir.mkdir(parents=True, exist_ok=True)
+
         if report_dir is None:
             report_dir = './downloads'
         self.report_dir = Path(report_dir).absolute()
         self.report_dir.mkdir(parents=True, exist_ok=True)
-        self.emails_file = emails_file
+
+        if type(emails_file_or_dictlist) == list:
+            self.emails_df = pd.DataFrame(emails_file_or_dictlist)
+        elif type(emails_file_or_dictlist) == str:
+            self.emails_df = pd.read_csv(emails_file_or_dictlist)
+        else:
+            logger.debug('Output class must be instantiated with file or dict-list')
+            exit()
+        self.email_network_drive = email_network_drive
+        self.logger = logger
 
     
     def check_dataframes(self, data_dict):
@@ -56,7 +70,7 @@ class Output:
                 check = all(checks) == True
                 results.append(check)
             except:
-                logger.error("error in checking dfs")
+                self.logger.error("error in checking dfs")
                 results.append(False)
         result = all(results) == True
         return result
@@ -67,14 +81,17 @@ class Output:
 
         #constants
         subject = 'CBDC Tracker Update'
-        df = pd.read_csv(self.emails_file)
+        df = self.emails_df
         df_emails = df[df['notify'] == True]
 
         #scenarios
-        body_success = b'''Dear Sir/Ma'am, this is a notification that the Central Bank Digital Currency 
-                (CBDC) Tracker report is updated.  You can find it in the following shared drive: 
-                `\hqfile01\sec_edgar\cbdc_tracker\`.
+        template_success = f'''\
+                Dear Sir/Ma'am,\
+                This is a notification that the Central Bank Digital Currency 
+                (CBDC) Tracker report is updated.  You can find it in the following shared drive:\ 
+                {self.email_network_drive}\
                 '''
+        body_success = bytes(template_success, encoding='utf8')
         emails_success = df_emails['address'].tolist()
 
         body_fail = b'''*** There was an error ***'''
@@ -96,22 +113,29 @@ class Output:
             result = p.communicate(input=body_content)[0]
             checks.append(result)
         except:
-            print("failed to send email notification.")
-
+            self.logger.error("failed to send email notification.")
+            
         return checks
 
 
     def create_report(self, recs):
         """Download the data to a file."""
-        download_path = self.report_dir
-        file_path = download_path / 'monthly_report.xlsx'
+
+        #copy for archives
+        year_wk = f'{datetime.datetime.now().year}_{datetime.datetime.now().isocalendar().week}'
+        copy_path = self.report_dir
+        copy_file_path = copy_path / f'monthly_report-{year_wk}.csv'
+
+        #output to network drive
+        output_path = self.report_dir
+        output_file_path = output_path / 'monthly_report.xlsx'
 
         data_dict = {'recs': recs}
         result = self.check_dataframes(data_dict)
         if result:
             df = pd.DataFrame(recs)
-            df.to_excel(file_path, index=False)
+            df.to_csv(copy_file_path, index=False)
+            df.to_excel(output_file_path, index=False)
             return True
         else:
             return False
-        

@@ -10,8 +10,10 @@ __license__ = "MIT"
 
 from cbdc_scraper.output import Output
 from config._constants import (
-    emails_file,
+    report_copy_dir,
     report_dir,
+    email_network_drive,
+    logger,
     country_record
 )
 
@@ -21,8 +23,11 @@ import numpy as np
 
 
 output = Output(
+    report_copy_dir = report_copy_dir,
     report_dir = report_dir,
-    emails_file = emails_file
+    emails_file_or_dictlist = [{'name': 'Joe Smith', 'address': 'joe.smith@gmail.com', 'notify':True, 'admin':True}],
+    email_network_drive = email_network_drive,
+    logger = logger 
     )
 
 
@@ -32,31 +37,35 @@ def test_check_dataframes():
     check = output.check_dataframes(data_dict)
     assert check == False
 
-def test_send_notification():
+def test_send_notification_fail():
+    checks = output.send_notification(error=True)
+    assert checks == []
+
+def test_send_notification_success():
     checks = output.send_notification(error=True)
     assert checks != []
 
 def test_create_report_fail():
     recs = []
     rec = country_record(
-                Country="n/a",
-                Status="n/a",
-                StatusChange="n/a",
-                StatusLastQtr="n/a",
+                Country= np.nan,
+                Status= np.nan,
+                StatusChange= np.nan,
+                StatusLastQtr= np.nan,
 
-                CentralBank="n/a",
-                NationalBankPresence="n/a",
-                BankNames="n/a",
+                CentralBank= np.nan,
+                NationalBankPresence= np.nan,
+                BankNames= np.nan,
 
-                CurrencyName="n/a",
-                Purpose="n/a",
-                PartnerFirm="n/a",
-                Software="n/a",
-                LedgerType="n/a",
-                BlockChainPermissions="n/a",
+                CurrencyName= np.nan,
+                Purpose= np.nan,
+                PartnerFirm= np.nan,
+                Software= np.nan,
+                LedgerType= np.nan,
+                BlockChainPermissions= np.nan,
 
-                Technology="n/a",
-                Summary="n/a",
+                Technology= np.nan,
+                Summary= np.nan,
                 )
     recs.append(rec)
     check = output.create_report(recs=recs)
