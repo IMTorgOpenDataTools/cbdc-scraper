@@ -24,7 +24,7 @@ class Output:
 
         if report_copy_dir is None:
             report_copy_dir = './downloads'
-        self.report_copy_dir = Path(report_dir).absolute()
+        self.report_copy_dir = Path(report_copy_dir).absolute()
         self.report_copy_dir.mkdir(parents=True, exist_ok=True)
 
         if report_dir is None:
@@ -85,12 +85,11 @@ class Output:
         df_emails = df[df['notify'] == True]
 
         #scenarios
-        template_success = f'''\\
-                Dear Sir/Ma'am,\\
-                This is a notification that the Central Bank Digital Currency 
-                (CBDC) Tracker report is updated.  You can find it in the following shared drive:\\ 
-                {self.email_network_drive}\\
-                '''
+        template_success = (f'''
+        Dear Sir/Ma'am,
+        This is a notification that the Central Bank Digital Currency (CBDC) Tracker report is updated.  You can find it in the following shared drive: 
+        {self.email_network_drive}
+        ''')
         body_success = bytes(template_success, encoding='utf8')
         emails_success = df_emails['address'].tolist()
 
@@ -123,7 +122,7 @@ class Output:
 
         #copy for archives
         year_wk = f'{datetime.datetime.now().year}_{datetime.datetime.now().isocalendar().week}'
-        copy_path = self.report_dir
+        copy_path = self.report_copy_dir
         copy_file_path = copy_path / f'monthly_report-{year_wk}.csv'
 
         #output to network drive
