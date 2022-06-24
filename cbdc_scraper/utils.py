@@ -13,6 +13,7 @@ import sys
 from pathlib import Path
 
 import requests
+from requests.adapters import HTTPAdapter, Retry
 import datetime as dt
 import numpy as np
 import pandas as pd
@@ -35,7 +36,7 @@ def get_data_cbdc():
     Return dict of lists (records).
     """
     #constants
-    url_head= "https://cbdctracker.org/api"
+    url_head= "https://cbdctracker.org/api/"
     files = {"currencies":"currencies", 
             "tags":"/currencies/tags", 
             "technologies":"technologies",
@@ -54,15 +55,23 @@ def get_data_cbdc():
                 'dlt':"Ledger Type", 'Permission':"Permission"
     }
 
+    # requests session
+    session = requests.Session()
+    retries = Retry(total=5,
+                    backoff_factor=0.1,
+                    status_forcelist=[ 500, 502, 503, 504 ])
+    session.mount(url_head, HTTPAdapter(max_retries=retries))
+
+
     #request data
     data = {}
-    for k,v in files.items():
-        url = f"{url_head}/{v}"
+    for key, url_stem in files.items():
+        url = f"{url_head}/{url_stem}"
         try:
-            resp = requests.get(url, headers=headers)
+            resp = session.get(url, headers=headers)
             if resp.status_code == 200:
                 content = resp.json()
-                data[k] = content
+                data[key] = content
                 logger.info("Data from cbdc is scraped.")
         except:
             logger.error("Data from cbdc is NOT scraped.")

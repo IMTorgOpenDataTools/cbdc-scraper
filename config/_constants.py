@@ -14,6 +14,8 @@ from output import Output
 
 
 
+
+# variables
 emails_file = './config/emails.csv'
 email_network_drive = '\\hqfiles01\sec_edgar\cbdc_tracker$'
 
@@ -21,10 +23,14 @@ report_dir = './downloads'
 report_copy_dir = './downloads'
 logging_dir = './downloads/process.log'
 
+
+# logging
 logzero.loglevel(logzero.INFO)                                           #set a minimum log level: debug, info, warning, error
 logzero.logfile(logging_dir, maxBytes=1000000, backupCount=3)            #set rotating log file
 logger.info('logger created, constants initialized')
 
+
+# output
 output = Output(
     report_copy_dir = report_copy_dir,
     report_dir = report_dir,
@@ -32,6 +38,8 @@ output = Output(
     email_network_drive = email_network_drive,
     logger = logger
     )
+
+
 
 
 
