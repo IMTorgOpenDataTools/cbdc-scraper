@@ -36,9 +36,9 @@ def get_data_cbdc():
     Return dict of lists (records).
     """
     #constants
-    url_head= "https://cbdctracker.org/api/"
+    url_head= "https://cbdctracker.org/api"
     files = {"currencies":"currencies", 
-            "tags":"/currencies/tags", 
+            "tags":"currencies/tags", 
             "technologies":"technologies",
             "columns":"currencies/columns",
             "history":"history-of-changes?page=0&size=1"
@@ -68,7 +68,7 @@ def get_data_cbdc():
     for key, url_stem in files.items():
         url = f"{url_head}/{url_stem}"
         try:
-            resp = session.get(url, headers=headers)
+            resp = session.get(url, headers=headers, verify=False)
             if resp.status_code == 200:
                 content = resp.json()
                 data[key] = content
