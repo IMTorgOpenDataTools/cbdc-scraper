@@ -1,0 +1,238 @@
+Country,Status,StatusChange,StatusLastQtr,CentralBank,NationalBankPresence,BankNames,CurrencyName,Purpose,PartnerFirm,Software,LedgerType,BlockChainPermissions,Technology,Summary
+Senegal,Canceled,No,,Central Bank of West African States,<edw_query>,<edw_query>,eCFA,Retail,eCurrency Mint,,Undecided,Token,<manual>,<manual>
+Ecuador,Canceled,No,,Central Bank of Ecuador,<edw_query>,<edw_query>,Dinero Electrónico,Retail,CNT,,Conventional,Account,<manual>,<manual>
+Euro Area,Development,No,,European Central Bank,<edw_query>,<edw_query>,"Digital Euro (Retail), Project Stella (Wholesale)",Both,,,Both,Both,<manual>,<manual>
+Australia,Development,Yes,Research,Reserve Bank of Australia,<edw_query>,<edw_query>,,Both,,,Undecided,Undecided,<manual>,<manual>
+Switzerland,Development,No,,Swiss National Bank,<edw_query>,<edw_query>,,Wholesale,"SIX, BIS",,Undecided,Undecided,<manual>,<manual>
+Canada,Development,No,,Bank of Canada,<edw_query>,<edw_query>,,Both,,,Both,Both,<manual>,<manual>
+Japan,Development,No,,Bank of Japan,<edw_query>,<edw_query>,,Both,,,Undecided,Undecided,<manual>,<manual>
+Venezuela,Development,Yes,Inactive,Central Bank of Venezuela,<edw_query>,<edw_query>,Digital Bolivar,Both,,,Undecided,Undecided,<manual>,<manual>
+Bahrain,Development,No,,Central Bank of Bahrain,<edw_query>,<edw_query>,,Wholesale,"JP Morgan, Bank ABC",,,,<manual>,<manual>
+Brazil,Development,No,,Central Bank of Brazil,<edw_query>,<edw_query>,Digital Fiat Currency,Retail,,,DLT,Token,<manual>,<manual>
+Cambodia,Development,Yes,Other,National Bank of Cambodia,<edw_query>,<edw_query>,Bakong,Retail,Soramitsu ,,DLT,Token,<manual>,<manual>
+Haiti,Development,No,,Bank of the Republic of Haiti,<edw_query>,<edw_query>,Digital Gourde,Both,,,Both,Undecided,<manual>,<manual>
+Lebanon,Development,No,,Banque du Liban,<edw_query>,<edw_query>,,Retail,,,Undecided,Undecided,<manual>,<manual>
+Mauritius,Development,No,,Bank of Mauritius,<edw_query>,<edw_query>,,Both,,,Undecided,Undecided,<manual>,<manual>
+Turkey,Development,No,,Central Bank of the Republic of Turkey,<edw_query>,<edw_query>,Digital Turkish Lira,Retail,"Aselsan, Havelsan, Tubitak Bilgem
+",,Undecided,Undecided,<manual>,<manual>
+Palau,Development,Yes,Other,,<edw_query>,<edw_query>,,Both,Ripple,Ripple,DLT,Undecided,<manual>,<manual>
+Israel,Development,No,,Bank of Israel,<edw_query>,<edw_query>,E-shekel,Retail,,Ethereum,Undecided,Undecided,<manual>,<manual>
+India,Development,Yes,Research,Reserve Bank of India,<edw_query>,<edw_query>,,Both,,,Both,Account,<manual>,<manual>
+Sint Maarten,Inactive,No,,Central Bank of Curaçao and Sint Maarten,<edw_query>,<edw_query>,Digital Curaçao and Sint Maarten Guilder,Retail,Bitt Inc.,,Conventional,Token,<manual>,<manual>
+Finland,Inactive,No,,The Bank of Finland,<edw_query>,<edw_query>,Digital Euro,Retail,,,Both,Undecided,<manual>,<manual>
+Curaçao,Inactive,No,,Central Bank of Curaçao and Sint Maarten,<edw_query>,<edw_query>,Digital Curaçao and Sint Maarten Guilder,Retail,Bitt Inc.,,Conventional,Token,<manual>,<manual>
+Denmark,Inactive,No,,Denmarks Nationalbank,<edw_query>,<edw_query>,,Retail,,,Undecided,Both,<manual>,<manual>
+Egypt,Inactive,No,,Central Bank of Egypt,<edw_query>,<edw_query>,,Undecided,,,Undecided,Undecided,<manual>,<manual>
+North Korea,Inactive,No,,Central Bank of the Democratic People's Republic of Korea,<edw_query>,<edw_query>,,Undecided,,,Undecided,Undecided,<manual>,<manual>
+Uruguay,Inactive,No,,Central Bank of Uruguay,<edw_query>,<edw_query>,Billete Digital,Retail,,,Conventional,Token,<manual>,<manual>
+Nigeria,Launched,Yes,Development,Central Bank of Nigeria,<edw_query>,<edw_query>,e-Naira,Retail,Bitt Inc.,Fabric,DLT,Account,<manual>,<manual>
+Antigua and Barbuda,Launched,No,,Eastern Caribbean Central Bank,<edw_query>,<edw_query>,DCash,Retail,Bitt Inc.,Fabric,DLT,Both,<manual>,<manual>
+Grenada,Launched,No,,Eastern Caribbean Central Bank,<edw_query>,<edw_query>,DCash,Retail,Bitt Inc.,Fabric,DLT,Both,<manual>,<manual>
+Saint Kitts and Nevis,Launched,No,,Eastern Caribbean Central Bank,<edw_query>,<edw_query>,DCash,Retail,Bitt Inc.,Fabric,DLT,Both,<manual>,<manual>
+Saint Lucia,Launched,No,,Eastern Caribbean Central Bank,<edw_query>,<edw_query>,DCash,Retail,Bitt Inc.,Fabric,DLT,Both,<manual>,<manual>
+Saint Vincent and the Grenadines,Launched,Yes,Pilot,Eastern Caribbean Central Bank,<edw_query>,<edw_query>,DCash,Retail,Bitt Inc.,Fabric,DLT,Both,<manual>,<manual>
+The Bahamas,Launched,No,,Central Bank of the Bahamas,<edw_query>,<edw_query>,Sand Dollar,Retail,NZIA Limited,NZIA Limited,Both,Both,<manual>,<manual>
+Dominica,Launched,Yes,Pilot,Eastern Caribbean Central Bank,<edw_query>,<edw_query>,DCash,Both,Bitt Inc.,,DLT,Both,<manual>,<manual>
+Montserrat,Launched,Yes,Pilot,Eastern Caribbean Central Bank,<edw_query>,<edw_query>,DCash,Both,Bitt Inc.,,DLT,Both,<manual>,<manual>
+Federated States of Micronesia,Other,No,,,<edw_query>,<edw_query>,,Undecided,Sovereign Union and Apollo Fintech,,DLT,Undecided,<manual>,<manual>
+Marshall Islands,Other,No,,,<edw_query>,<edw_query>,Marshallese Sovereign,Retail,Algorand,,Undecided,Undecided,<manual>,<manual>
+Russia,Pilot,Yes,Development,Bank of Russia,<edw_query>,<edw_query>,Digital Ruble,Retail,"Sberbank, VTB, Gazprombank, Alfa Bank",,Both,Account,<manual>,<manual>
+United Arab Emirates,Pilot,No,,Central Bank of the United Arab Emirates,<edw_query>,<edw_query>,Project Aber,Wholesale,,Fabric,DLT,Account,<manual>,<manual>
+Anguilla,Pilot,No,,Eastern Caribbean Central Bank,<edw_query>,<edw_query>,DCash,Both,Bitt Inc.,,DLT,Both,<manual>,<manual>
+China,Pilot,No,,The People's Bank of China,<edw_query>,<edw_query>,e-CNY,Both,,,Both,Account,<manual>,<manual>
+Hong Kong,Pilot,No,,Hong Kong Monetary Authority,<edw_query>,<edw_query>,e-CNY,Both,,,Undecided,Undecided,<manual>,<manual>
+Thailand,Pilot,No,,Bank of Thailand,<edw_query>,<edw_query>,,Both,Giesecke+Devrient,,Both,Both,<manual>,<manual>
+Saudi Arabia,Pilot,No,,Saudi Central Bank,<edw_query>,<edw_query>,,Wholesale,,Fabric,DLT,Account,<manual>,<manual>
+Malaysia,Pilot,Yes,Research,Bank Negara Malaysia,<edw_query>,<edw_query>,,Wholesale,,,Undecided,Undecided,<manual>,<manual>
+Singapore,Pilot,No,,Monetary Authority of Singapore,<edw_query>,<edw_query>,Project Ubin,Wholesale,,,Undecided,Undecided,<manual>,<manual>
+South Africa,Pilot,Yes,Development,South African Reserve Bank,<edw_query>,<edw_query>,"Electronic legal tender (Retail), Project Khokha (Wholesale), Project Dunbar (Wholesale)",Both,Bank of International Settlements,,Undecided,Token,<manual>,<manual>
+Jamaica,Launched,Yes,Development,Bank of Jamaica,<edw_query>,<edw_query>,,Retail,eCurrency Mint,,Conventional,Account,<manual>,<manual>
+Lithuania,Pilot,No,,Bank of Lithuania,<edw_query>,<edw_query>,,Retail,,Ethereum,Undecided,Undecided,<manual>,<manual>
+South Korea,Pilot,No,,Bank of Korea,<edw_query>,<edw_query>,,Retail,Samsung,Ethereum,DLT,Undecided,<manual>,<manual>
+Sweden,Pilot,No,,Sveriges Riksbank,<edw_query>,<edw_query>,E-krona,Retail,Svenska Handelsbanken,,DLT,Both,<manual>,<manual>
+Ukraine,Pilot,No,,National Bank of Ukraine,<edw_query>,<edw_query>,E-hryvnia,,Stellar Development Foundation,,Undecided,Undecided,<manual>,<manual>
+France,Development,No,,Banque de France,<edw_query>,<edw_query>,Digital Euro,Both,European Investment Bank,,Undecided,Undecided,<manual>,<manual>
+Estonia,Development,Yes,Research,Bank of Estonia,<edw_query>,<edw_query>,Digital Euro,Retail,,,DLT,Undecided,<manual>,<manual>
+Germany,Development,Yes,Research,Deutsche Bundesbank,<edw_query>,<edw_query>,Digital Euro,,,,Both,Both,<manual>,<manual>
+Italy,Development,Yes,Research,Bank of Italy,<edw_query>,<edw_query>,Digital Euro,Undecided,,,Both,Both,<manual>,<manual>
+Netherlands,Development,Yes,Research,Netherlands Bank,<edw_query>,<edw_query>,Digital Euro,Retail,,,Both,Account,<manual>,<manual>
+Spain,Development,Yes,Research,Bank of Spain,<edw_query>,<edw_query>,Digital Euro,Retail,,,Undecided,Both,<manual>,<manual>
+New Zealand,Research,No,,Reserve Bank of New Zealand,<edw_query>,<edw_query>,,Retail,,,Undecided,Undecided,<manual>,<manual>
+Belarus,Research,No,,National Bank of the Republic of Belarus,<edw_query>,<edw_query>,,Undecided,,,Undecided,Undecided,<manual>,<manual>
+Belize,Development,Yes,Research,Central Bank of Belize,<edw_query>,<edw_query>,,Undecided,,,Undecided,Undecided,<manual>,<manual>
+Bhutan,Development,Yes,No development yet,,<edw_query>,<edw_query>,Digital Ngultrum,Both,Ripple,Ripple,,,<manual>,<manual>
+Chile,Research,No,,Central Bank of Chile,<edw_query>,<edw_query>,,Retail,,,,,<manual>,<manual>
+Eswatini,Research,No,,The Central Bank of Eswatini,<edw_query>,<edw_query>,,Both,,,Undecided,Undecided,<manual>,<manual>
+Georgia,Research,No,,National Bank of Georgia,<edw_query>,<edw_query>,Digital Gel,Retail,,,Undecided,Undecided,<manual>,<manual>
+Ghana,Research,No,,Bank of Ghana,<edw_query>,<edw_query>,E-cedi,Retail,,,Undecided,Undecided,<manual>,<manual>
+Guatemala,Research,Yes,No development yet,Banco de Guatemala,<edw_query>,<edw_query>,iQuetzal,,,,,,<manual>,<manual>
+Honduras,Research,No,,Central Bank of Honduras,<edw_query>,<edw_query>,,Undecided,,,Undecided,Undecided,<manual>,<manual>
+Iceland,Research,No,,Central Bank of Iceland,<edw_query>,<edw_query>,Rafkróna,Retail,,,Undecided,Both,<manual>,<manual>
+Indonesia,Research,No,,Bank Indonesia,<edw_query>,<edw_query>,,Both,,,Undecided,Undecided,<manual>,<manual>
+Iran,Development,Yes,Research,The Central Bank of the Islamic Republic of Iran,<edw_query>,<edw_query>,Digital Rial,Retail,,,Undecided,Undecided,<manual>,<manual>
+Kazakhstan,Pilot,Yes,Research,National Bank of Kazakhstan,<edw_query>,<edw_query>,Digital Tenge,Retail,,,Both,Token,<manual>,<manual>
+Kenya,Research,No,,Central Bank of Kenya,<edw_query>,<edw_query>,,Retail,,,Undecided,Undecided,<manual>,<manual>
+Kuwait,Research,No,,Central Bank of Kuwait,<edw_query>,<edw_query>,Digital Dinar,Retail,,,Undecided,Undecided,<manual>,<manual>
+Laos,Research,Yes,No development yet,Bank of the Lao PDR,<edw_query>,<edw_query>,,Undecided,Soramitsu,,,,<manual>,<manual>
+Madagascar,Research,No,,Banky Foiben'i Madagasikara,<edw_query>,<edw_query>,eAriary,Retail,,,Undecided,Undecided,<manual>,<manual>
+Morocco,Research,No,,Central Bank of Morocco,<edw_query>,<edw_query>,,Retail,,,Undecided,Token,<manual>,<manual>
+Norway,Research,No,,Central Bank of Norway,<edw_query>,<edw_query>,,Retail,,,Undecided,Undecided,<manual>,<manual>
+Pakistan,Research,No,,State Bank of Pakistan,<edw_query>,<edw_query>,,Retail,,,Undecided,Undecided,<manual>,<manual>
+Palestine,Research,No,,Palestine Monetary Authority,<edw_query>,<edw_query>,,Retail,,,Undecided,Undecided,<manual>,<manual>
+Philippines,Research,No,,Central Bank of the Philippines,<edw_query>,<edw_query>,,Retail,,,Undecided,Undecided,<manual>,<manual>
+Rwanda,Research,No,,National Bank of Rwanda,<edw_query>,<edw_query>,,Undecided,,,Undecided,Undecided,<manual>,<manual>
+Taiwan,Research,No,,Central Bank of the Republic of China (Taiwan),<edw_query>,<edw_query>,,Both,,,Undecided,Undecided,<manual>,<manual>
+Trinidad and Tobago,Research,Yes,Inactive,Central Bank of Trinidad and Tobago,<edw_query>,<edw_query>,,Undecided,,,Undecided,Undecided,<manual>,<manual>
+Tunisia,Research,No,,Central Bank of Tunisia,<edw_query>,<edw_query>,,Wholesale,ProsperUs,,Undecided,Undecided,<manual>,<manual>
+United Kingdom,Research,No,,Bank of England,<edw_query>,<edw_query>,,Both,,,Undecided,Undecided,<manual>,<manual>
+United States of America,Research,No,,Federal Reserve System,<edw_query>,<edw_query>,,Retail,,,Undecided,Undecided,<manual>,<manual>
+Austria,Research,Yes,No development yet,Oesterreichische Nationalbank,<edw_query>,<edw_query>,Delphi,Wholesale,,,DLT,,<manual>,<manual>
+Czech Republic,Research,Yes,No development yet,Czech National Bank,<edw_query>,<edw_query>,,Undecided,,,,,<manual>,<manual>
+Macau,Research,Yes,No development yet,Montary Authority of Macau,<edw_query>,<edw_query>,,Undecided,,,,,<manual>,<manual>
+Peru,Research,Yes,No development yet,Central Reserve Bank of Peru,<edw_query>,<edw_query>,,Undecided,,,,,<manual>,<manual>
+Mexico,Research,Yes,No development yet,Central Bank of Mexico,<edw_query>,<edw_query>,Digital peso,Retail,,,,,<manual>,<manual>
+Afghanistan,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Albania,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Algeria,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+American Samoa,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Andorra,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Angola,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Argentina,Inactive,Yes,No development yet,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Armenia,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Aruba,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Azerbaijan,Inactive,Yes,No development yet,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Bangladesh,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Barbados,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Belgium,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Benin,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Bermuda,Inactive,Yes,No development yet,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Bolivia,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Bosnia and Herzegovina,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Botswana,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+British Indian Ocean Territory,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+British Virgin Islands,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Brunei,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Bulgaria,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Burkina Faso,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Burundi,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Cameroon,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Cape Verde,No development yet,No,,Bank of Cape Verde,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Cayman Islands,No development yet,No,,Cayman Islands Monetary Authority ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Central African Republic,No development yet,No,,Bank of Central African States,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Chad,No development yet,No,,Bank of Central African States,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Colombia,No development yet,No,,Central Bank of Colombia,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Comoros,No development yet,No,,Central Bank of Comoros ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Cook Islands,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Costa Rica,No development yet,No,,Central Bank of Costa Rica ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Croatia,No development yet,No,,Croatian National Bank,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Cuba,No development yet,No,,Central Bank of Cuba,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Cyprus,No development yet,No,,Central Bank of Cyprus,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Democratic Republic of the Congo,No development yet,No,,Central Bank of Congo,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Djibouti,No development yet,No,,Central Bank of Djibouti,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Dominican Republic,No development yet,No,,Central Bank of the Domincan Republic ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+El Salvador,No development yet,No,,Central Reserve Bank of El Salvador,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Equatorial Guinea,No development yet,No,,Bank of Central African States,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Eritrea,No development yet,No,,Bank of Eritrea,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Ethiopia,No development yet,No,,National Bank of Ethopia,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Falkland Islands,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Faroe Islands,No development yet,No,,Danmarks National Bank,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Fiji,No development yet,No,,Reserve Bank of Fiji,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+French Polynesia,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+French Southern and Antarctic Lands,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Gabon,No development yet,No,,Bank of Central African States,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Gibraltar,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Greece,No development yet,No,,Bank of Greece,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Greenland,No development yet,No,,Danmarks National Bank,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Guam,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Guernsey,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Guinea,No development yet,No,,Central Bank of the Republic of Guinea,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Guinea-Bissau,No development yet,No,,Central Bank of West African States,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Guyana,No development yet,No,,Bank of Guyana,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Heard Island and McDonald Islands,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Hungary,Research,Yes,No development yet,Hungarian National Bank,<edw_query>,<edw_query>,,Retail,,,,,<manual>,<manual>
+Iraq,No development yet,No,,Central Bank of Iraq,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Ireland,No development yet,No,,Central Bank of Ireland ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Isle of Man,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Ivory Coast,No development yet,No,,Central Bank of West African States,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Jersey,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Jordan,Research ,Yes,No development yet,Central Bank of Jordan,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Kiribati,No development yet,No,,(Uses the Uastralian Dolar) ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Kosovo,No development yet,No,,Central Bank of Kosovo,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Kyrgyzstan,No development yet,No,,National Bank of the Kyrgyz Republic,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Latvia,No development yet,No,,Bank of Latvia,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Lesotho,No development yet,No,,Central Bank of Lesotho,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Liberia,No development yet,No,,Central Bank of Liberia ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Libya,No development yet,No,,Central Bank of Libya,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Liechtenstein,No development yet,No,,(Swiss National Bank),<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Luxembourg,No development yet,No,,Central Bank of Luxembourg,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Malawi,No development yet,No,,Reserve Bank of Malawi,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Maldives,No development yet,No,,Maldives Monetary Authority ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Mali,No development yet,No,,Central Bank of West African States,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Malta,No development yet,No,,Central Bank of Malta ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Mauritania,No development yet,No,,Central Bank of Mauritania ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Moldova,No development yet,No,,National Bank of Moldova,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Monaco,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Mongolia,No development yet,No,,The Bank of Mongolia ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Montenegro,No development yet,No,,Central Bank of Montenegro,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Mozambique,No development yet,No,,Bank of Mozambique ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Myanmar,Research,Yes,No development yet,Central Bank of Myanmar,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Namibia,No development yet,No,,Bank of Namibia,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Nauru,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Nepal,Research ,Yes,No development yet,Nepal Rastra Bank,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+New Caledonia,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Nicaragua,No development yet,No,,Central Bank of Nicaragua,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Niger,No development yet,No,,Central Bank of West African States,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Niue,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Norfolk Island,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Northern Mariana Islands,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Oman,No development yet,No,,Central Bank of Oman,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Panama,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Papua New Guinea,No development yet,No,,Bank of Papua New Guinea,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Paraguay,No development yet,No,,Central Bank of Paraguay,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Pitcairn Islands,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Poland,No development yet,No,,National Bank of Poland,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Portugal,No development yet,No,,The Bank of Portugal,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Puerto Rico,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Qatar,No development yet,No,,The Qatar Central Bank,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Republic of Macedonia,No development yet,No,,National Bank of the Republic of North Macedonia ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Republic of the Congo,No development yet,No,,The Bank of Central African States ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Romania,No development yet,No,,Central Bank of Romania ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Saint Helena,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Saint Martin,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Saint Pierre and Miquelon,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Samoa,No development yet,No,,The Central Bank of Samoa,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+San Marino,No development yet,No,,Central Bank of San Marino,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+São Tomé and Príncipe,No development yet,No,,Central Bank of São Tomé and Príncipe,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Serbia,No development yet,No,,National Bank of Serbia ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Seychelles,No development yet,No,,Central Bank of Seychelles,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Sierra Leone,No development yet,No,,The Bank of Sierra Leone,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Slovakia,No development yet,No,,National Bank of Slovakia,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Slovenia,No development yet,No,,The Bank of Slovenia,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Solomon Islands,No development yet,No,,Central Bank of Solomon Islands,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Somalia,No development yet,No,,The Central Bank of Somalia ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+South Georgia and the South Sandwich Islands,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+South Sudan,No development yet,No,,The Bank of South Sudan,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Sri Lanka,No development yet,No,,Central Bank of Sri Lanka,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Sudan,No development yet,No,,The Central Bank of Sudan ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Suriname,No development yet,No,,The Central Bank of Suriname,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Syria,No development yet,No,,The Central Bank of Syria (CBS),<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Tajikistan,No development yet,No,,National Bank of Tajikistan ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Tanzania,Research,Yes,No development yet,The Bank of Tanzania ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+The Gambia,No development yet,No,,The Central Bank of The Gambia,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Timor-Leste,No development yet,No,,Banco Central de Timor-Leste,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Togo,No development yet,No,,Central Bank of West African States,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Tonga,No development yet,No,,National Reserve Bank of Tonga,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Turkmenistan,No development yet,No,,The National Bank of Turkmenistan,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Turks and Caicos,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Tuvalu,No development yet,No,,National Bank of Tuvalu (However not considered a central bank),<edw_query>,<edw_query>,,,"nChain, Faiā and Elas",,,,<manual>,<manual>
+Uganda,Research ,Yes,No development yet,The Bank of Uganda,<edw_query>,<edw_query>,,,Temtum group,,,,<manual>,<manual>
+United States Virgin Islands,No development yet,No,,The Federal Reserve System,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Uzbekistan,No development yet,No,,The Central Bank of the Republic of Uzbekistan,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Vanuatu,No development yet,No,,Reserve Bank of Vanuatu,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Vatican City,No development yet,No,,Holy See (Overarching Government authority in control of investments) ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Vietnam,No development yet,No,,The State Bank of Vietnam ,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Wallis and Futuna,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Western Sahara,No development yet,No,,,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Yemen,No development yet,No,,Central Bank of Yemen,<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Zambia,Research,Yes,No development yet,The Bank of Zambia (BoZ),<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
+Zimbabwe,Research,Yes,No development yet,The Reserve Bank of Zimbabwe (RBZ),<edw_query>,<edw_query>,,,,,,,<manual>,<manual>
