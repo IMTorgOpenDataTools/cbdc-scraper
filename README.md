@@ -28,11 +28,17 @@ Main entrypoint to the program:
 pipenv run python cbdc_scraper/scraper.py
 ```
 
+The output in `downloads/` includes:
+
+* csv file (NN - julien date): `monthly_report-YYYY_NN.csv`
+* excel file: `monthly_report.xlsx`
+* log file: `process.log`
+
 
 
 ## Testing
 
-Basic testing can be performed using `pytest`.
+Basic testing can be performed within the `pipenv` using `pytest`.  Note that `test_send_notification_success()` will fail if email is not configured.
 
 Command line testing of a specific test method can be performed using:  `pytest --trace tests/test_scraper.py -k test_get_data_atlantic`.
 

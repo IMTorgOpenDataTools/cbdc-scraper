@@ -85,7 +85,7 @@ def get_data_cbdc():
 
     # additional tables
     df_tags = pd.DataFrame(data['tags'])
-    changed = []
+    changed = [{'name':'', 'valueOld':'', 'valueNew':''}]
     content = data["history"]["content"][0]
     for item in df_tags.to_dict('records'):
         step1 = [hist for hist in content["tags"] 
@@ -98,6 +98,7 @@ def get_data_cbdc():
             changed.extend(change_list)
         else:
             continue
+    logger.info(f"Number of records changed from previous timeperiod: {changed.__len__()-1}")
     df_changed = pd.DataFrame(changed)
 
     # merge tables
